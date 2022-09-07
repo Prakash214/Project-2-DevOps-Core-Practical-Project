@@ -1,0 +1,6 @@
+Flask
+requests
+markupsafe
+itsdangerous
+Jinja2
+werkzeug

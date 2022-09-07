@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+ nginx:
+  image: nginx:latest
+  ports:
+   - target: 80
+     published: 80
+  volumes:
+   - type: bind
+     source: ./nginx.conf
+     target: /etc/nginx/nginx.conf
+  networks:
+   - 'ffh-net'
+  depends_on:
+   - 'front-end'
+ front-end:
+  image: prakash2151/front-end:latest
+  build: ./front-end
+  networks:
+   - 'ffh-net'
+ characters:
+  image: prakash2151/characters:latest
+  build: ./characters
+  deploy:
+   replicas: 1
+  networks:
+   - 'ffh-net'
+ friend:
+  image: prakash2151/friend:latest
+  build: ./friend
+  deploy:
+   replicas: 1
+  networks:
+   - 'ffh-net'
+ fruit:
+  image: prakash2151/fruit:latest
+  build: ./fruit
+  deploy:
+   replicas: 1
+  networks:
+   - 'ffh-net'
+networks:
+  ffh-net:
