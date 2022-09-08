@@ -2,7 +2,7 @@ from application import app
 from flask import jsonify
 from random import choice
 
-friends = ['zoro', 'sanji', 'jimbei', 'nami', 'luffy', 'usopp', 'chopper', 'robin', 'brook', 'friends']
+friends = ['zoro', 'sanji', 'jimbei', 'nami', 'luffy', 'usopp', 'chopper', 'robin', 'brook', 'franky']
 
 @app.route('/get-friend', methods=['GET'])
 def get_friend():
