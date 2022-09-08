@@ -1,27 +1,21 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-
-        stage('Build and push images') {
+        stage('Run tests') {
+            steps {
+                sh 'bash test.sh'
+            }
+        }
+        stage('Build and Push'){
             environment {
-                DOCKER_UNAME = credentials('dockeruser')
-                DOCKER_PWORD = credentials('dockerpass')
+                DOCKER_CREDS = credentials('dockerlogin')
             }
             steps {
                 sh "docker-compose build --parallel"
-                sh "docker login -u $DOCKER_UNAME -p $DOCKER_PWORD"
+                sh "docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}"
                 sh "docker-compose push"
+                sh "/bin/bash -c 'docker rmi \$(docker images -q)'"
             }
         }
-
-        stage('Run unit tests') {
-            steps {
-                sh "bash test.sh"
-            }
-        }
-        
-
-         
-}
 
 }
