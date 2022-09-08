@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
                 sh "sudo docker-compose build "
-                sh "docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}"
+                sh "sudo docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}"
                 sh "sudo docker-compose push"
                 sh "sudo docker-compose up -d"
             }
