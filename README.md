@@ -57,3 +57,4 @@ The project must make use of a reverse proxy to make your application accessible
 
 TO DO:
 As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
+use docker swarm
