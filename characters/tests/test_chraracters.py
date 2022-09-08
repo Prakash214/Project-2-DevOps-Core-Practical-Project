@@ -12,24 +12,24 @@ class TestBase(TestCase):
 class TestView(TestBase):
     @patch('application.routes.choice', return_value='blackbeard')
     def test_characters1(self, mock_func):
-        response = self.client.post(url_for('characters'), json={'fruits':'Dark-Dark Fruit'})
+        response = self.client.post(url_for('get_character'), json={'fruit':'Dark-Dark Fruit'})
         self.assert200(response)
         self.assertIn(b'blackbeard',response.data)
 
     @patch('application.routes.choice', return_value='blackbeard')
     def test_characters2(self, mock_func):
-        response = self.client.post(url_for('characters'), json={'fruits':'Soul-Soul Fruit'})
+        response = self.client.post(url_for('get_character'), json={'fruit':'Soul-Soul Fruit'})
         self.assert200(response)
         self.assertIn(b'blackbeard',response.data)
 
     @patch('application.routes.choice', return_value='blackbeard')
     def test_characters3(self, mock_func):
-        response = self.client.post(url_for('characters'), json={'fruits':'Tremor-Tremor Fruit'})
+        response = self.client.post(url_for('get_character'), json={'fruit':'Tremor-Tremor Fruit'})
         self.assert200(response)
         self.assertIn(b'blackbeard',response.data)
     
     @patch('application.routes.choice', return_value='blackbeard')
     def test_characters4(self, mock_func):
-        response = self.client.post(url_for('get_characters'), json={'fruits':'Fish-Fish Fruit'})
+        response = self.client.post(url_for('get_character'), json={'fruit':'Fish-Fish Fruit'})
         self.assert200(response)
         self.assertIn(b'blackbeard',response.data)
