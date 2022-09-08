@@ -1,3 +1,16 @@
+ create a service-orientated architecture for your application, this application must be composed of at least 4 services that work together.
+
+Service #1
+The core service – this will render the Jinja2 templates and need to interact with your application, it will also be responsible for communicating with the other 3 services, and finally for persisting some data in an SQL database.
+
+Service #2 + #3
+These will both generate a random “Object”, this object can be whatever you like as we encourage creativity in this project.
+
+Service #4
+This service will also create an “Object” however this “Object” must be based upon the results of service #2 + #3 using some pre-defined rules.
+
+
+
 risk assessmenet
 ![image](https://i.gyazo.com/d0f7d7f9f2596fc63a0485ab1f2c1fdf.png)
 mock test shows 100% coverage and working in csv and pipeline
